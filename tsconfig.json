@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "moduleResolution": "Node",
+    "lib": ["es5", "es6", "dom"],
+    "target": "esnext"
+  }
+}

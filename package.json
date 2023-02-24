@@ -1,0 +1,16 @@
+{
+  "name": "typescript-di-review",
+  "version": "0.0.0",
+  "private": true,
+  "module": "index.js",
+  "scripts": {
+    "start": "parcel index.html"
+  },
+  "dependencies": {
+    "lit-element": "2.5.1",
+    "typescript": "4.3.5"
+  },
+  "devDependencies": {
+    "parcel": "^2.8.3"
+  }
+}
