@@ -1,22 +1,21 @@
-import { Inject } from 'injection-js'
+import { Inject } from "injection-js";
 import { HttpService } from './http.service';
 import { v4 as uuidv4 } from 'uuid';
 
-export interface ILogService {
+export interface IMainService {
   info(): string;
   ping(): void;
 }
 
-export class LogService implements ILogService {
-
+export class MainService implements IMainService {
   uuid: any;
   constructor(@Inject(HttpService) private httpService: HttpService) {
     this.uuid = uuidv4();
-    console.info('@@@@ LogService::uuid ' + this.uuid);
+    console.info('@@@@ MainService::uuid ' + this.uuid);
   }
 
   info(): string {
-    return LogService.name + ' ' + this.uuid;
+    return MainService.name + ' ' + this.uuid;
   }
 
   ping(): void {

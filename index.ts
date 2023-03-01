@@ -1,46 +1,29 @@
-// Import stylesheets
 import 'reflect-metadata';
-import { customElement, html, property } from 'lit-element';
+import { Injecting } from './commons/Injecting';
+import { customElement, html, LitElement } from 'lit-element';
 import { LogService } from './services/log.service';
-import { autoInjectable, container, inject, injectable } from 'tsyringe';
-import { BasePlugin } from './common/base';
+import { MainService } from './services/main.service';
+import { Inject } from 'injection-js';
+import './plugins/title';
 
-//@injectable()
 @customElement('web-component')
-export class WebComponent extends BasePlugin {
-  @property({ type: String }) name = '';
+export class WebComponent extends Injecting(LitElement) {
 
-  private logService1 = container.resolve(LogService);
+  private logService: LogService = this.forRoot().get(LogService);
+  private mainService: MainService = this.forRoot().get(MainService);
 
-  constructor(
-    @inject('ls') private logService2: LogService,
-    private logService3: LogService
-  ) {
+  constructor() {
     super();
-
-    this.logService2 = container.resolve('ls');
-    this.logService3 = container.resolve(LogService);
-    console.info('@@@@ WebComponent @@@ container ', container);
-    console.info(
-      '@@@@ WebComponent @@@@ logService 1 ',
-      this.logService1.info()
-    );
-    console.info(
-      '@@@@ WebComponent @@@@ logService 2 ',
-      this.logService2.info()
-    );
-    console.info(
-      '@@@@ WebComponent @@@@ logService 3 ',
-      this.logService3.info()
-    );
+    console.info('@@@@ WebComponent @@@@ logService::uuid ',this.logService.uuid);
+    this.logService.info();
+    this.logService.ping();
+    console.info('@@@@ WebComponent @@@@ mainService::uuid ',this.mainService.uuid);
+    this.mainService.info();
+    this.mainService.ping();
   }
-
   render() {
-    return html`Hello, ${this.name} Welcome to LitElement! <br/>
-     DI (via resolve) : ${this.logService1.info()}  <br/>
-     DI (via inject) : ${this.logService2.info()} <br/>
-     DI (via resolve) : ${this.logService3.info()}  <br/>
-     </p>`;
+    return html`Hello, Welcome to LitElement! <b>INJECTION-JS</b>
+    <slot></slot>
+     <web-title tag="v2" ></web-title>`;
   }
 }
-//container.resolve(WebComponent);
