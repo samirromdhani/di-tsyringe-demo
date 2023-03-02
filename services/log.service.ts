@@ -1,4 +1,4 @@
-import { injectable, singleton } from 'tsyringe';
+import { singleton } from 'tsyringe';
 import { v4 as uuidv4 } from 'uuid';
 
 export interface ILogService {

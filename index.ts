@@ -2,11 +2,11 @@ import 'reflect-metadata';
 import { customElement, html, property } from 'lit-element';
 import { LogService } from './services/log.service';
 import { autoInjectable, container, inject, injectable } from 'tsyringe';
-import { BasePlugin } from './common/base';
+import { DataCoreModule} from './commons/DataCoreModule';
 
 //@injectable()
 @customElement('web-component')
-export class WebComponent extends BasePlugin {
+export class WebComponent extends DataCoreModule {
   @property({ type: String }) name = '';
 
   private logService1 = container.resolve(LogService);

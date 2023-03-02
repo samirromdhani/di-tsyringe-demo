@@ -2,8 +2,7 @@ import { LitElement } from 'lit-element';
 import { container, DependencyContainer } from 'tsyringe';
 import { LogService } from '../services/log.service';
 
-//https://codesandbox.io/s/s7kvi
-export class BasePlugin extends LitElement {
+export class DataCoreModule extends LitElement {
   container!: DependencyContainer;
   constructor() {
     super();
