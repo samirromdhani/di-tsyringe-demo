@@ -7,10 +7,10 @@
     "start": "parcel index.html"
   },
   "dependencies": {
-    "lit-element": "2.5.1",
-    "reflect-metadata": "^0.1.13",
     "injection-js": "^2.4.0",
-    "typescript": "4.3.5",
+    "lit-element": "^3.2.2",
+    "reflect-metadata": "^0.1.13",
+    "typescript": "^4.9.5",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
