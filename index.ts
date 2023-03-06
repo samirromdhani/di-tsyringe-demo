@@ -3,7 +3,6 @@ import { Injecting } from './commons/Injecting';
 import { customElement, html, LitElement } from 'lit-element';
 import { LogService } from './services/log.service';
 import { MainService } from './services/main.service';
-import { Inject } from 'injection-js';
 import './plugins/title';
 
 @customElement('web-component')
